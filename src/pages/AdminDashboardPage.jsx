@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineArrowLongUp } from 'react-icons/hi2';
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi';
 import { useContext, useEffect } from 'react';
-import { AuthContext } from '../authContext';
+import { AuthContext, tokenExpireError } from '../authContext';
 import { GlobalContext } from '../globalContext';
 import { useNavigate } from 'react-router-dom';
 import AdminDashboardNav from '../components/AdminDashboardNav';
@@ -35,6 +35,7 @@ const AdminDashboardPage = () => {
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
+        tokenExpireError(authDispatch, error.message);
         setIsLoading(false);
       }
     };

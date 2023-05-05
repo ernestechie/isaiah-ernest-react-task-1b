@@ -39,7 +39,10 @@ export const tokenExpireError = (dispatch, errorMessage) => {
     dispatch({
       type: 'LOGOUT',
     });
-    window.location.href = '/' + role + '/login';
+    if (role) {
+    } else {
+      window.location.href = '/admin/login';
+    }
   }
 };
 
