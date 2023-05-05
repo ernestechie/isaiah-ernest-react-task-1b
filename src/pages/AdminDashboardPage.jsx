@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HiOutlineArrowLongUp } from 'react-icons/hi2';
+import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../authContext';
 import { GlobalContext } from '../globalContext';
@@ -117,6 +118,15 @@ const AdminDashboardPage = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className='w-full mx-auto flex items-center justify-center p-4 gap-4 text-lg text-white'>
+              <button className='cursor-pointer p-2 rounded-full border-[1px] border-color-icon-secondary hover:border-color-link duration-300'>
+                <HiOutlineArrowLeft />
+              </button>
+              <button className='cursor-pointer p-2 rounded-full border-[1px] border-color-icon-secondary hover:border-color-link duration-300'>
+                <HiOutlineArrowRight />
+              </button>
             </div>
           </div>
         )}
