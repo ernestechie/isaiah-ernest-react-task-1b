@@ -108,7 +108,7 @@ const AdminDashboardPage = () => {
                       </div>
                     </div>
                     <div className='flex items-center justify-between col-span-12 md:col-span-6'>
-                      <p className='text-color-link text-[14px] font-light'>
+                      <p className='text-color-link-visited text-[14px] font-light'>
                         {item?.username}
                       </p>
                       <p className='font-light flex text-color-icon-secondary items-center gap-2'>
