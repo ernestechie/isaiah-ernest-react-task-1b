@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { HiOutlineArrowLongUp } from 'react-icons/hi2';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../authContext';
 import { GlobalContext } from '../globalContext';
@@ -63,13 +64,23 @@ const AdminDashboardPage = () => {
                 Today`s Leaderboard
               </h2>
               <div className='font-light rounded-2xl bg-bg-item-bg p-4 px-8 flex items-center justify-between gap-4'>
-                <p className='text-white'>30 May 2022</p>
+                <p className='text-color-icon-secondary'>
+                  {new Date().toLocaleDateString('default', {
+                    month: 'long',
+                  })}{' '}
+                  {new Date().getDate()} {new Date().getUTCFullYear()}
+                </p>
                 <div className='h-1 w-1 bg-color-icon-secondary rounded-full'></div>
                 <div className='py-2 px-4 rounded-xl bg-color-link'>
                   SUBMISSIONS OPEN
                 </div>
                 <div className='h-1 w-1 bg-color-icon-secondary rounded-full'></div>
-                <p className='text-white'>11:34</p>
+                <p className='text-color-icon-secondary'>
+                  {new Date().getHours() > 12
+                    ? new Date().getHours() - 12
+                    : new Date().getHours()}
+                  :{new Date().getMinutes()}
+                </p>
               </div>
             </div>
 
@@ -98,12 +109,22 @@ const AdminDashboardPage = () => {
                       <p className='text-color-link text-[14px] font-light'>
                         {item?.username}
                       </p>
+                      <p className='font-light flex text-color-icon-secondary items-center gap-2'>
+                        {item?.like}
+                        <HiOutlineArrowLongUp className='text-color-link' />
+                      </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+        )}
+
+        {!isLoading && !data && (
+          <p className='mt-24 text-center font-light text-3xl md:text-4xl text-white'>
+            NO VIDEO DATA
+          </p>
         )}
       </section>
     </>
