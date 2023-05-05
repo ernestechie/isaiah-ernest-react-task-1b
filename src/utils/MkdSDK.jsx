@@ -43,7 +43,7 @@ export default function MkdSDK() {
     const header = {
       'Content-Type': 'application/json',
       'x-project': base64Encode,
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token')),
     };
 
     switch (method) {
